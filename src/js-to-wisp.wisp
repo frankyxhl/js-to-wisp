@@ -8,7 +8,6 @@
   (:require [wisp.sequence :refer [reduce]]
             [fs]
             [traverse]
-            [utils :refer [recursive_scan]]
             [uglify-js :as uglifyjs]))
 
 (defn read-file-sync [file-name]
@@ -16,22 +15,6 @@
              (fn [err data] (if err
                               (throw err) 
                               data))))
-
-
-(defn cons [arr-a arr-b]
-  (.concat arr-a arr-b))
-
-(defn car [arr]
-  (if (.isArray Array arr)
-    (get arr 1)
-    (print arr " is not an array")))
-
-(defn cdr [arr]
-  (if (.isArray Array arr)
-    (.slice arr 1 arr.length)
-    (print arr "is not an array")))
-
-(def ll {:a "A", :b "B" , :e [{:c "C", :d "D"}]})
 
 (defn parse-code [buffer]
   (print (.stringify JSON (.parse uglifyjs buffer) null 4))
