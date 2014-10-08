@@ -27,15 +27,6 @@
 
 (parse-code "sum(x, y);") ;
 (parse-code (read-file-sync "test.js"))
-(print "================")
-
-;; (recursive_scan (.parse uglifyjs (read-file-sync "test.js")))
-
-;; traverse(obj).forEach(function (x) {
-    ;; if (x < 0) this.update(x + 128);
-;; });
-
-
 
 (defn check-token [body]
   (let [c (:type (:start body))]
