@@ -8,6 +8,7 @@
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-contrib-watch": "latest",
 		"grunt-wisp-compile":"latest",
+		"grunt-execute":"latest",
 		"traverse":"latest"
   }
 }

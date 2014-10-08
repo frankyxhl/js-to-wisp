@@ -1,8 +1,3 @@
-;; fs.readFile('/etc/passwd', function (err, data) {
-  ;; if (err) throw err;
-  ;; console.log(data);
-;; });
-
 (ns js-to-wisp.main
   "interactive code editing"
   (:require [wisp.sequence :refer [reduce]]
@@ -26,7 +21,7 @@
 )
 
 (parse-code "sum(x, y);") ;
-(parse-code (read-file-sync "test.js"))
+;; (parse-code (read-file-sync "test.js"))
 
 (defn check-token [body]
   (let [c (:type (:start body))]
@@ -46,9 +41,8 @@
     (str "(defn " (:name (:name body)) " )")
     (str "(fn "  " )")))
 
-(.forEach (traverse (.parse uglifyjs (read-file-sync "test.js"))) 
+(.forEach (traverse (.parse uglifyjs (read-file-sync "test/test.js"))) 
 ;; (.forEach (traverse (.parse uglifyjs "sum(x,y);")) 
           (fn [x]
             (if (and (:body x) this.notRoot)
-
               (print (check-token x)))))
