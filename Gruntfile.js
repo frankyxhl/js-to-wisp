@@ -1,14 +1,14 @@
 module.exports = function(grunt) {
 
-		grunt.loadNpmTasks('grunt-wisp-compile');
+  grunt.loadNpmTasks('grunt-wisp-compile');
   grunt.initConfig({
-			
+
     pkg: grunt.file.readJSON('package.json'),
 
     wisp: {
       noOptions: {
         files: {
-          'js-to-wisp.js': ['js-to-wisp.wisp']
+          'target/js-to-wisp.js': ['js-to-wisp.wisp']
         }
       }
     },
@@ -54,15 +54,15 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-	
+grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-jshint');
+grunt.loadNpmTasks('grunt-contrib-qunit');
+grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+grunt.registerTask('test', ['jshint', 'qunit']);
+
+grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };
